@@ -1,0 +1,42 @@
+{
+  "name": "curse",
+  "temp": "anymessage",
+  "event-type": "2",
+  "_id": "YzhFU",
+  "actions": [
+    {
+      "message": "1",
+      "varName": "anymessage",
+      "info": "2",
+      "storage": "1",
+      "varName2": "messagetext",
+      "name": "Store Message Info"
+    },
+    {
+      "behavior": "0",
+      "interpretation": "1",
+      "code": "var curse = [\"curseword1\", \"curseword2\", \"curseword3\", \"curseword4\", \"curseword5\"];\nvar msgtext = tempVars(\"messagetext\")\nvar msgarray = msgtext.split(\" \");\nvar i,j;\nvar count = 0;\nfor (j = 0 ; j < msgarray.length ; j++) {\n  for (i = 0 ; i < curse.length ; i++) {\n    if (msgarray[j] == curse[i]) {\n      count = count + 1;\n    }\n  }\n}\nthis.storeValue(count, 1, \"count\", cache)",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
+      "message": "1",
+      "varName": "anymessage",
+      "info": "4",
+      "storage": "1",
+      "varName2": "same",
+      "name": "Store Message Info"
+    },
+    {
+      "channel": "5",
+      "varName": "same",
+      "message": "Total ${tempVars(\"count\")} curse words found.",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    }
+  ]
+}
