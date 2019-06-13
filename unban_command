@@ -1,0 +1,16 @@
+{
+  "name": "unban",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "uWqvs",
+  "actions": [
+    {
+      "behavior": "1",
+      "interpretation": "1",
+      "code": "var targetServer = this.getServer(0, \"\", cache);\nvar search = msg.content.split(\" \").slice(1,2);\nvar bannedlist = targetServer.fetchBans()\nbannedlist.then(bans => {\n  const newban = bans.array()\n  for (i = 0; i <newban.length; i++) {\n    let memberobj = newban[i]\n    if (memberobj.id == search) {\n      this.storeValue(memberobj, 1 ,\"memberobj\", cache)\n      targetServer.unban(memberobj)\n      msg.channel.send(\"Unban user \"+memberobj)\n      this.callNextAction(cache);\n    }\n  }\n})",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    }
+  ]
+}
