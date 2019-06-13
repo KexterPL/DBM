@@ -1,0 +1,48 @@
+{
+  "name": "rank",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "PxFJq",
+  "actions": [
+    {
+      "debu": "0",
+      "numbefst2": "",
+      "numbefstselect": "2",
+      "sort": "1",
+      "start": "username",
+      "middle": "",
+      "end": "result",
+      "getresults": "",
+      "dataName": "xp",
+      "varName2": "rank",
+      "storage": "1",
+      "name": "Store Member Data List"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "22",
+      "storage": "1",
+      "varName2": "member",
+      "name": "Store Member Info"
+    },
+    {
+      "behavior": "0",
+      "interpretation": "1",
+      "code": "var ranklist = tempVars(\"rank\").split(\"\\n\")\nfunction findrank(rank) {\n  return rank.includes(tempVars(\"member\"));\n}\nvar item = ranklist.filter(findrank);\nvar position = ranklist.indexOf(item.toString()) + 1\nthis.storeValue(position, 1 ,\"ranking\", cache)\n\n",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "you are rank ${tempVars(\"ranking\")} in the server",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    }
+  ]
+}
