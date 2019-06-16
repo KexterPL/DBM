@@ -1,0 +1,21 @@
+var findchannel = "id"
+var channelinfo = "589929423260745730"
+var storetype = 1
+var storename = "category1"
+if (findchannel.toLowerCase() == "id") {
+  var channelobj = msg.guild.channels.find(element => element.id === channelinfo)
+} else if (findchannel.toLowerCase() == "name") {
+  var channelobj = msg.guild.channels.find(element => element.name === channelinfo)
+}
+if (typeof channelobj === "undefined") {
+  console.log("Error : channel not found by "+findchannel)
+} else {
+  var categoryid = channelobj.parentID
+  if (categoryid == "null") {
+    console.log("This channel don't have any category")
+    this.storeValue("",storetype,storename,cache)
+  } else {
+    var category = msg.guild.channels.find(element => element.id === categoryid)
+    this.storeValue(category,storetype,storename,cache)
+  }
+}
