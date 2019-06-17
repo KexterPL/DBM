@@ -1,0 +1,89 @@
+var subcommand = msg.content.split(" ").slice(1,2)
+var bannedlist = msg.guild.fetchBans()
+bannedlist.then(bans => {
+  const newban = bans.array()
+  if (newban) {
+    if (subcommand == "ban") {
+      var reason = msg.content.split(" ").slice(3).join(" ")
+      var bandate = Math.floor(new Date().getTime()/1000)
+      var banner = msg.author.id
+      memberobj = this.getMember(0,"",cache)
+      if (memberobj) {
+        if (reason) {
+          memberobj.setData("baninfo",bandate+" "+banner+" "+reason)
+          memberobj.ban(reason)
+        } else {
+          memberobj.setData("baninfo",bandate+" "+banner+" unknown")
+          memberobj.ban("unknown")
+        }
+        msg.channel.send("Member "+memberobj+" banned.")
+      } else {
+        msg.channel.send("Member not found.")
+      }
+    } else if ((subcommand == "unban" || subcommand == "update" || subcommand == "info") == true) {
+      var memberfound = false
+      for (i = 0; i <newban.length; i++) {
+        var search = msg.content.split(" ").slice(2,3)
+        if (search) {
+          let memberobj = newban[i]
+          if (memberobj.id == search) {
+            if (subcommand == "unban") {
+              msg.guild.unban(memberobj)
+              memberobj.setData("baninfo","")
+              msg.channel.send("Unban member "+memberobj+" from banned list.")
+            } else if (subcommand == "update") {
+              var reason = msg.content.split(" ").slice(3).join(" ")
+              var baninfo = memberobj.data("baninfo")
+              if (baninfo) {
+                memberobj.setData("baninfo",baninfo.split(" ").slice(0,2).join(" ")+" "+reason)
+              } else {
+                memberobj.setData("baninfo","unknown unknown "+reason)
+              }
+              msg.channel.send("User "+memberobj+"'s ban info updated.")
+            } else if (subcommand == "info") {
+              var baninfo = memberobj.data("baninfo")
+              if (!baninfo) {
+                var baninfo = "unknown unknown unknown"
+              }
+              var bandatedata = baninfo.split(" ").slice(0,1)
+              if (bandatedata != "unknown") {
+                var bandate = new Date(parseInt(bandatedata)*1000)
+              } else {
+                var bandate = bandatedata
+              }
+              var bannerid = baninfo.split(" ").slice(1,2).toString()
+              if (bannerid != "unknown") {
+                var banner = msg.guild.members.find(element => element.id === bannerid)
+              } else {
+                var banner = bannerid
+              }
+              var reason = baninfo.split(" ").slice(2).join(" ")
+              msg.channel.send("User "+memberobj+"'s ban info detail.\nBanned Time : **"+bandate+"**\nBanned By : **"+banner+"**\nBanned Reason : **"+reason+"**")
+            }
+            var memberfound = true
+            this.callNextAction(cache)
+          } else {
+            if (memberfound == false) {
+              msg.channel.send("Member not found.")
+            }
+          }
+        } else {
+          msg.channel.send("Member not found.")
+        }
+      }
+    } else if (subcommand == "list") {
+      var baninfo = ""
+      for (i = 0; i <newban.length; i++) {
+        let memberobj = newban[i]
+        var baninfo = baninfo + "User : "+memberobj.username+"#"+memberobj.discriminator+" ID: "+memberobj.id+"\n"
+      }
+      msg.channel.send(baninfo)
+    } else if (subcommand == "help") {
+      msg.channel.send("__**Ban Help**__\n\nUsage : ban <ban | unban | update | info | list | help> <reason>\n\nExample:\n`ban ban @user reason` Ban member with reason.\n`ban unban member_id` Unban member from banned.\n`ban update member_id reason` Update banned reason.\n`ban info member_id reason` Show up user's banned info.\n`ban list` Show up banned users from server.\n")
+    } else {
+      msg.channel.send("Invalid option.")
+    }
+  } else {
+    msg.channel.send("Banned list not found.Maybe try ban someone to use this command.")
+  }
+})
