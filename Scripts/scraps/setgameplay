@@ -1,0 +1,22 @@
+{
+  "name": "setgameplay",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "BAlBp",
+  "actions": [
+    {
+      "info": "1",
+      "infoIndex": "1",
+      "storage": "1",
+      "varName": "param",
+      "name": "Store Command Params"
+    },
+    {
+      "activity": "0",
+      "nameText": "${tempVars(\"param\")}",
+      "url": "",
+      "stat": "0",
+      "name": "Set Bot Activity"
+    }
+  ]
+}
