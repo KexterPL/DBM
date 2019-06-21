@@ -1,0 +1,7 @@
+var memberobj = this.getMember(0,"",cache)
+if (memberobj) {
+  var msgcontent = msg.content.split(" ").slice(2).join(" ")
+  msg.delete()
+  memberobj.user.send(msgcontent)
+  msg.channel.send("done!")
+}
