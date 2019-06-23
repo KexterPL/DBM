@@ -86,7 +86,7 @@ html: function(isEvent, data) {
 	<div style="padding-top: 8px; width: 70%;">
 		Source Info:<br>
 		<select id="info" class="round">
-			<option value="0" selected>Image Weight (X)</option>
+			<option value="0" selected>Image Width (X)</option>
 			<option value="1">Image Height (Y)</option>
 		</select>
 	</div>
