@@ -6,7 +6,7 @@ module.exports = {
 // This is the name of the action displayed in the editor.
 //---------------------------------------------------------------------
 
-name: "Store Image Info",
+name: "Store Image Info MOD",
 
 //---------------------------------------------------------------------
 // Action Section
@@ -27,7 +27,7 @@ subtitle: function(data) {
 	return `${storeTypes[parseInt(data.storage2)]} (${data.varName2})`;
 },
 
-//https://github.com/LeonZ2019/DBM-Raw-Data
+//https://github.com/LeonZ2019/
 author: "LeonZ",
 version: "1.1.0",
 
