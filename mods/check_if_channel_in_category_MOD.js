@@ -6,7 +6,7 @@ module.exports = {
 // This is the name of the action displayed in the editor.
 //---------------------------------------------------------------------
 
-name: "Check If Channel in Category MOD",
+name: "Check Channel Category MOD",
 
 //---------------------------------------------------------------------
 // Action Section
@@ -39,7 +39,7 @@ version: "1.1.0",
 // are also the names of the fields stored in the action's JSON data.
 //---------------------------------------------------------------------
 
-fields: ["storage", "varName", "iftrue", "iftrueVal", "iffalse", "iffalseVal"],
+fields: ["channel", "varName", "iftrue", "iftrueVal", "iffalse", "iffalseVal"],
 
 //---------------------------------------------------------------------
 // Command HTML
@@ -61,9 +61,9 @@ html: function(isEvent, data) {
 	return `
 <div>
 	<div style="float: left; width: 35%;">
-		Source Variable:<br>
-		<select id="storage" class="round" onchange="glob.refreshVariableList(this)">
-			${data.variables[1]}
+		Source Channel:<br>
+		<select id="channel" class="round" onchange="glob.channelChange(this, 'varNameContainer')">
+			${data.channels[isEvent ? 1 : 0]}
 		</select>
 	</div>
 	<div id="varNameContainer" style="float: right; width: 60%;">
@@ -87,16 +87,7 @@ html: function(isEvent, data) {
 init: function() {
 	const {glob, document} = this;
 
-	glob.onChange1 = function(event) {
-		if(event.value === "0") {
-			document.getElementById("directValue").style.display = 'none';
-		} else {
-			document.getElementById("directValue").style.display = null;
-		}
-	};
-
-	glob.onChange1(document.getElementById('comparison'));
-	glob.refreshVariableList(document.getElementById('storage'));
+	glob.channelChange(document.getElementById('channel'), 'varNameContainer');
 	glob.onChangeTrue(document.getElementById('iftrue'));
 	glob.onChangeFalse(document.getElementById('iffalse'));
 },
@@ -111,13 +102,12 @@ init: function() {
 
 action: function(cache) {
 	const data = cache.actions[cache.index];
-	const type = parseInt(data.storage);
+	const channel = parseInt(data.channel);
 	const varName = this.evalMessage(data.varName, cache);
-	const variable = this.getVariable(type, varName, cache);
-	console.log(variable)
+	const targetChannel = this.getChannel(channel, varName, cache);
 	let result = false;
-	if (variable) {
-		const find = variable.parentID;
+	if(targetChannel) {
+		const find = targetChannel.parentID;
 		if (find === null) {
 			result = false;
 		} else {
