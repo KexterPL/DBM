@@ -11,3 +11,4 @@ Discord Bot Maker Raw Data & Mods & Scripts
 - Unban Member
 - Check Parameter
 - Check if Channel in Category
+- Variable Pattern
