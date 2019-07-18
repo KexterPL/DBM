@@ -12,3 +12,7 @@ Discord Bot Maker Raw Data & Mods & Scripts
 - Check Parameter
 - Check if Channel in Category
 - Variable Pattern
+- Delete Bulk Message
+
+# Delete Bulk Message
+- Solved error inside event `TypeError: Cannot read property 'id' of undefined`
