@@ -28,6 +28,7 @@ Discord Bot Maker Raw Data & Mods & Scripts
 - Check go by `if true` and `if false`
 
 # Variable Pattern
+![Screenshot](\src\variable_pattern.png)
 - Change variable value by adding pattern include `Repeat every character`, `Change character to character`, `Add character to Front`, `Add character to End`, `Add character to Specific Position`, `Store character from front`, `Store character from end`, `Store one character`
 
 # Delete Bulk Message
