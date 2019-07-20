@@ -15,6 +15,21 @@ Discord Bot Maker Raw Data & Mods & Scripts
 - Delete Bulk Message
 - Clone Channel
 
+# Store Image Info
+- Store only image `dimension x` and `dimentions y` in pixel
+
+# Unban Member
+- Unban by `member id` or `member name`
+
+# Check Parameter
+- Added option `less than or equal` and `more than or equal`
+
+# Check if Channel in Catergory
+- Check go by `if true` and `if false`
+
+# Variable Pattern
+- Change variable value by adding pattern include `Repeat every character`, `Change character to character`, `Add character to Front`, `Add character to End`, `Add character to Specific Position`, `Store character from front`, `Store character from end`, `Store one character`
+
 # Delete Bulk Message
 - Solved error inside event `TypeError: Cannot read property 'id' of undefined`
 
