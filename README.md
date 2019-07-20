@@ -13,6 +13,11 @@ Discord Bot Maker Raw Data & Mods & Scripts
 - Check if Channel in Category
 - Variable Pattern
 - Delete Bulk Message
+- Clone Channel
 
 # Delete Bulk Message
 - Solved error inside event `TypeError: Cannot read property 'id' of undefined`
+
+# Clone Channel
+- Text channel able to clone include `Channel Name`, `Slow Mode`, `NSFW`, `Topic`, `Permissions`
+- Voice channel able to clone include `Channel Name`, `User Limit`, `Bitrate`, `Permissions`
