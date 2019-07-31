@@ -1,0 +1,26 @@
+{
+  "name": "member_join",
+  "temp": "memberobj",
+  "event-type": "6",
+  "_id": "JfwJD",
+  "actions": [
+    {
+      "behavior": "1",
+      "interpretation": "1",
+      "code": "var memberobj = tempVars(\"memberobj\")\nmemberobj.guild.fetchInvites().then(guildInvites => {\n  var invites = globalVars(\"invites\")\n  var invite = guildInvites.find(function(invite1) {\n    return invites[memberobj.guild.id].find(i => i.uses < invite1.uses)\n  })\n  var code = invite.code\n  var inviter = cache.server.members.find(member => member.id === invite.inviter.id)\n  invites[cache.server.id] = guildInvites\n  this.storeValue(invites,3,\"invites\",cache)\n  while (typeof code === \"undefined\" && typeof inviter === \"undefined\") {\n    var code = invite.code\n    var inviter = cache.server.members.find(member => member.id === invite.inviter.id)\n  }\n  this.storeValue(inviter,1,\"inviter\",cache)\n  this.storeValue(code,1,\"code\",cache)\n  this.callNextAction(cache)\n})",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
+      "channel": "4",
+      "varName": "",
+      "message": "Member ${tempVars(\"memberobj\")} uses invite code `${tempVars(\"code\")}` generate from ${tempVars(\"inviter\")}",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    }
+  ]
+}
