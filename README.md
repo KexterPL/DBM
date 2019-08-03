@@ -36,7 +36,9 @@ Discord Bot Maker Raw Data & Mods & Scripts
 - **Variable Pattern**  Change variable value by adding pattern include `Repeat every character`, `Change character to character`, `Add character to Front`, `Add character to End`, `Add character to Specific Position`, `Store character from front`, `Store character from end`, `Store one character`
 ![Varaible Pattern](src/variable_pattern.png)
 - **Delete Bulk Message** Solved error inside event `TypeError: Cannot read property 'id' of undefined`
-- **Clone Channel** Text channel able to clone include `Channel Name`, `Slow Mode`, `NSFW`, `Topic`, `Permissions`. Voice channel able to clone include `Channel Name`, `User Limit`, `Bitrate`, `Permissions`
+- **Clone Channel**
+  - Text channel able to clone include `Channel Name`, `Slow Mode`, `NSFW`, `Topic`, `Permissions`
+  - Voice channel able to clone include `Channel Name`, `User Limit`, `Bitrate`, `Permissions`
 
 ## Raw Data Function
 - **curse_word_detect_event** This event will detect all message send by all of member and then detect if include in the `curse list`
