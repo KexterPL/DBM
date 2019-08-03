@@ -1,0 +1,47 @@
+var speedTest = require('speedtest-net')
+msg.channel.send("Testing speed at speedtest.net, please wait about 20 seconds")
+speedTest({maxTime: 5000}).on('data', data => {
+  var result = data
+  var ul = result.speeds.upload
+  var dl = result.speeds.download
+  var ping = result.server.ping
+  var location = result.server.location
+  var distance = result.server.distance
+  if (distance < 1) {
+    distance = distance * 1000 + "M"
+  } else {
+    distance = distance + "KM"
+  }
+  var serverlink = location+", ("+distance+")"
+  if (ul < 1) {
+    ul = (ul*125).toFixed(2) + " Kbps"
+  } else if (ul > 1000) {
+    ul = (ul/125).toFixed(2) + " Gbps"
+  } else {
+    ul = ul.toFixed(2) + " Mbps"
+  }
+  if (dl < 1) {
+    dl = (dl*125).toFixed(2) + " Kbps"
+  } else if (dl > 1000) {
+    dl = (dl/125).toFixed(2) + " Gbps"
+  } else {
+    dl = dl.toFixed(2) + " Mbps"
+  }
+  var colors = ["65280","13434624","16763904","16737792","16711680"]
+  if (ping >= 200) {
+    var color = "16711680"
+  } else {
+    var color = colors[Math.floor(ping/50)]
+  }
+  var ping = ping + " ms"
+  var embedobject = new RichEmbed()
+  function RichEmbed() {
+    this.title = 'Speedtest.net Result',
+    this.url = 'https://www.speedtest.net',
+    this.color = color,
+    this.timestamp = new Date(),
+    this.fields = [{ name: 'Upload Speed', value: ul, inline: true },{ name: 'Download Speed', value: dl, inline: true },{ name: 'Server Location', value: serverlink, inline: false },{ name: 'Ping', value: ping, inline: true }]
+  }
+  msg.channel.send({embed:embedobject})
+  this.callNextAction(cache)
+})
