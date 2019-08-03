@@ -95,7 +95,9 @@ typeof === 'undefined'
   - `msg.channel.rateLimitPerUser` Get same channel slow mode value
 
 ## Voice Channel
-
+- **Get same channel information**
+  - `msg.channel.channel.userLimit` Get voice channel's user limit (Default value : `0`)
+  - `msg.channel.bitrate` Get voice channel's bitrate in `kbps` unit (Default value : `64`)
 
 ## Message
 - **Direct message to command author** `msg.author.send("Hello World")` Send `Hello World` message to command author
@@ -117,9 +119,9 @@ typeof === 'undefined'
 
 ##Export bot
 1. Copy whole `Actions` folder from DBM to bot directory
-2. 
+2. Run cmd and command `node bot.js` inside bot directory
 
-##Hosting Windows
+## Hosting Windows
 1.Create file and weite as below
 ```batch
 @echo off
