@@ -86,6 +86,9 @@ script allow to execute by `Run Script` action and here is all information about
 ### Number
 - **
 
+### String
+- **
+
 ### Math
 - **
 ### Comparisons
@@ -93,7 +96,7 @@ script allow to execute by `Run Script` action and here is all information about
 typeof === 'undefined'
 [More info](https://www.w3schools.com/js)
 
-## Common DBM Script
+## Miscellaneous DBM Script
 - **Store Variable Value** `this.storeValue(variable,1,"variable_name",cache)` Store `variable` to `tempVars("variable_name")`
   (1 = tempVars, 2 = serverVars, 3 = globalVars)
 - **Read Variable Value** `tempvars("variable_name")` Reading variable from script
@@ -101,14 +104,13 @@ typeof === 'undefined'
 - **Log message to console** `console.log("information")` Logging `information` to console
 - **Read Data** `msg.author.data("coin")` Reading command author's coin data
 - **Set Data** `msg.author.setData("coin","1")` Set command author's coin data to 1
-[More info](https://silversunset.net/dbm/scripts)
-
-## Miscellaneous DBM Script
 - **Files** `const Files = this.getDBM().Files`
 - **Stop bot** `process.exit()`
 - **Store command parameter** `msg.content.split(" ").splice(0,1).join(" ")` Store parameter begin from 1
-- **Change server** `cache.server = `server_b` change current server to `server_b`
+- **Change server** `cache.server = server_b` change current server to `server_b`
 - **Save variable** `Files.saveServerVariable(msg.guild.id,"data_name","data_value")` data will be save to `.\data\serverVars.json`
+
+[More info](https://silversunset.net/dbm/scripts)
 
 ## Client `AKA Bot`
 - **Bot client** `this.getDBM().Bot.bot`
@@ -139,6 +141,7 @@ typeof === 'undefined'
 - **Get current server object** `msg.channel.guild` or `this.getServer(0,"",cache)`
 - **Get current server name** `msg.channel.guild.name`
 - **Get total member of current server** `msg.guild.memberCount`
+- **Get owner of current server** `msg.guild.owner`
 
 ## Text Channel
 - **Get same channel object** `msg.channel` or `this.getChannel(0,"",cache)`
@@ -162,7 +165,6 @@ typeof === 'undefined'
 - **Direct message to command author** `msg.author.send("Hello World")` Send `Hello World` message to command author
 - **Send message to same channel** `msg.channel.send("Hello World")` Send `Hello World` to same channel
 - **Get the content of the command message** `msg.content`
-- **Get
 
 ## Fetchinfo
 - ban
@@ -174,7 +176,7 @@ typeof === 'undefined'
 
 ## Package `npmjs package`
 - `npm i discord.js`
--
+- `npm i ytdl-core`
 
 ##Export bot
 1. Copy whole `Actions` folder from DBM to bot directory
