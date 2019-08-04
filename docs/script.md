@@ -21,10 +21,69 @@ script allow to execute by `Run Script` action and here is all information about
 - **Sort the list by descending number** `list.sort(function(a, b){return b - a})` Sort all items from big to small
 - **Sort the list by randomly** `list.sort(function(a, b){return 0.5 - Math.random()})` Sort all items by shuffle item
 
-### If
--
-### While
-- **
+### Condition
+- **Operator**
+  - Operator | Description | Example
+    --- | --- | ---
+    `+` | Addition | a + b `1 + 2 = 3`
+    `-` | Subtraction | a - b `1 - 2 = -1`
+    `*` | Multiplication | a * b `1 * 2 = 2`
+    `/` | Division | a / b `1 / 2 = 0.5`
+    `++` | Increment | a ++ `a = a + 1`
+    `--` | Decrement | a -- `a = a - 1`
+    `**` | Exponentiation | a ** b `2 ** 3 = 8`
+    `%` | Modulus (Division Remainder) | a % b `10 % 4 = 2`
+    `=` | Equal | a = 1 `set a to 1`
+    `==` | Equal to | a == 1 `check a is equal to 1, true`
+    `===` | Equal value and equal type | a === "1" `check a is equal excatly to "1", false`
+    `!=` | Not equal | a !=1 `check a not equal to 1, false`
+    `!==` | Not equal value or not equal type | a !== "2" `check a not equal excatly to 2, true`
+    `>` | Greater than | a > b `1 greater than 2, false`
+    `>=` | Greater than or equal to | a >= b `1 greater than or equal to 1, true`
+    `<` | Less than | a < b `1 less than 2, true`
+    `<=` | Less than or equal to | a <= b `1 less than or equal to 0, false`
+    `&&` | Logical and | (a < 1 && b < 1) `a(1) is less than 1 (true) and b(2) is less than 1 (false), false`
+    `||` | Logical or | (a < 1 || b < 1) `a(1) is less than 1 (true) or b(2) is less than 1 (false), true`
+    `!` | Logical not | (a < 1 && b < 1) `a(1) is less than 1 (true), b(2) is less than 1 (false), false`
+    `?` | Ternary operator | ?(a < b) `a(1) less than b(2) true, false`
+- **If**
+  - Loops can execute a block of code a number of times.
+  - Example :
+  ```js
+    if (a > b) {
+      //  block of code to be executed if the condition is true
+    } else {
+      //  block of code to be executed if the condition is false
+    }
+    ```
+- **While**
+  - Loops can execute a block of code as long as a specified condition is true.
+  - Example :
+  ```js
+    while (a > b) {
+      //  block of code to be executed if the condition is true
+    }
+    ```
+- **For**
+  - Loops can execute a block of code a number of times.
+  - Example :
+  ```js
+    for(a=0; a < b; a++) {
+      //  block of code to be executed if the condition is true
+    }
+    ```
+- **Switch**
+  - The switch statement is used to perform different actions based on different conditions.
+  - Example :
+    ```js
+    switch(a) {
+      case 0:
+        // block of code to be executed if value of a is 0
+      default:
+        break;
+    }
+    ```
+
 ### Number
 - **
 
@@ -42,14 +101,15 @@ typeof === 'undefined'
 - **Call next action** `this.callNextAction(cache)` Call next action directly
 - **Log message to console** `console.log("information")` Logging `information` to console
 - **Read Data** `msg.author.data("coin")` Reading command author's coin data
-- **Set Data** `msg.author.setData("coin","1") Set command author's coin data to 1
-- **Stop bot** `process.exit()`
+- **Set Data** `msg.author.setData("coin","1")` Set command author's coin data to 1
 [More info](https://silversunset.net/dbm/scripts)
 
 ## Miscellaneous DBM Script
+- **Files** `const Files = this.getDBM().Files`
+- **Stop bot** `process.exit()`
 - **Store command parameter** `msg.content.split(" ").splice(0,1).join(" ")` Store parameter begin from 1
 - **Change server** `cache.server = `server_b` change current server to `server_b`
-- **
+- **Save variable** `Files.saveServerVariable(msg.guild.id,"data_name","data_value")` data will be save to `.\data\serverVars.json`
 
 ## Client `AKA Bot`
 - **Bot client** `this.getDBM().Bot.bot`
@@ -103,7 +163,7 @@ typeof === 'undefined'
 - **Direct message to command author** `msg.author.send("Hello World")` Send `Hello World` message to command author
 - **Send message to same channel** `msg.channel.send("Hello World")` Send `Hello World` to same channel
 - **Get the content of the command message** `msg.content`
-- **
+- **Get
 
 ## Fetchinfo
 - ban
@@ -122,7 +182,7 @@ typeof === 'undefined'
 2. Run cmd and command `node bot.js` inside bot directory
 
 ## Hosting Windows
-1.Create file and weite as below
+1.Create file and write as below
 ```batch
 @echo off
 :start
@@ -155,10 +215,23 @@ done
 
 ## Error at console
 - Please update your `some_action.js` in your project action folder
+  - Copy the `some_action.js` from DBM directory `\steamapps\common\Discord Bot Maker\actions\some_action.js` to Bot directory `actions` folder
 - DBM MODS(Node Module Installer v2.1) Node Module `some_module` does not exist!
+  - Open `cmd.exe` and to install the module type `npm i some_module`
 - TypeError: Cannot read property `some_name` of null
+  - The variable of `some_name` value is `null` please find the source of read the variable
 - TypeError: Cannot read property `some_name` of undefined
 - Error Incorrect login details were provided.
-- 'Node' is not recognized as an internal or external command, operable program or batch file.
+- **(Windows only)** 'Node' is not recognized as an internal or external command, operable program or batch file.
+  - Download [link](https://nodejs.org/en/) and install it
+- **(Linux only)** command not found: node
+  - `sudo apt install nodejs` Install node to system
+  - `sudo apt install npm` Install npm to system
 - ReferenceError : `some_name` is not defined
 - Error: There was an error parsing `some_name`.json
+  - Easy way is reset the json data by replace all by `{}` and save it
+  - Best way is paste all data to `http://jsonpathfinder.com` and check for Error position, then go to the position and fix it like an Object
+
+## NONE PROCESS TO CATEOGORY
+Files.data.players["insert user id"] = {};
+Files.saveData("players");
