@@ -43,7 +43,6 @@ script allow to execute by `Run Script` action and here is all information about
     `<` | Less than | a < b `1 less than 2, true`
     `<=` | Less than or equal to | a <= b `1 less than or equal to 0, false`
     `&&` | Logical and | (a < 1 && b < 1) `a(1) is less than 1 (true) and b(2) is less than 1 (false), false`
-    `||` | Logical or | (a < 1 || b < 1) `a(1) is less than 1 (true) or b(2) is less than 1 (false), true`
     `!` | Logical not | (a < 1 && b < 1) `a(1) is less than 1 (true), b(2) is less than 1 (false), false`
     `?` | Ternary operator | ?(a < b) `a(1) less than b(2) true, false`
 - **If**
@@ -230,7 +229,7 @@ done
 - ReferenceError : `some_name` is not defined
 - Error: There was an error parsing `some_name`.json
   - Easy way is reset the json data by replace all by `{}` and save it
-  - Best way is paste all data to `http://jsonpathfinder.com` and check for Error position, then go to the position and fix it like an Object
+  - Best way is paste all data to [Jsonpathfinder](http://jsonpathfinder.com) and check for Error position, then go to the position and fix it like an Object
 
 ## NONE PROCESS TO CATEOGORY
 Files.data.players["insert user id"] = {};
