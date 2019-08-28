@@ -16,6 +16,12 @@ Discord Bot Maker Raw Data & Mods & Scripts
 - Clone Channel
 - Delete Member Data
 - Delete Server Data
+- Image Packs
+  - Canvas Create Image
+  - Canvas Draw Text on Image
+  - Canvas Draw Image on Image
+  - Canvas Image Options
+  - Canvas Send Image
 
 ## Raw Data Preview
 - curse_word_detect_event
