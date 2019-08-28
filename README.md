@@ -22,6 +22,7 @@ Discord Bot Maker Raw Data & Mods & Scripts
   - Canvas Draw Image on Image
   - Canvas Image Options
   - Canvas Send Image
+- Base Convert
 
 ## Raw Data Preview
 - curse_word_detect_event
@@ -49,6 +50,7 @@ Discord Bot Maker Raw Data & Mods & Scripts
   - Voice channel able to clone include `Channel Name`, `User Limit`, `Bitrate`, `Permissions`
 - **Delete Member Data** Delete specific member data or leave it blank to delete all member data
 - **Delete Server Data** Delete specific server data or leave it blank to delete all server data
+- **Base Convert** Convert range from base-2 to base-36
 
 ## Raw Data Function
 - **curse_word_detect_event** This event will detect all message send by all of member and then detect if include in the `curse list`
