@@ -170,7 +170,7 @@ action: function(cache) {
 	const type = parseInt(data.type);
 	const width = parseInt(data.width);
 	const height = parseInt(data.height);
-	const percent = parseInt(data.percent);
+	const percent = this.evalMessage(data.percent, cache);
 	const lineWidth = parseInt(data.lineWidth);
 	const lineCap = parseInt(data.lineCap);
 	let Cap;
