@@ -142,7 +142,7 @@ action: function(cache) {
 	const ctx = canvas.getContext('2d');
 	ctx.drawImage(image, 0, 0, image.width, image.height);
 	Canvas.loadImage(image2).then((image2) => {
-		ctx.drawImage(image2, 0, 0, image2.width, image2.height);
+		ctx.drawImage(image2, x, y, image2.width, image2.height);
 		const result = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
 		this.storeValue(result, storage, varName, cache);
 		this.callNextAction(cache);
