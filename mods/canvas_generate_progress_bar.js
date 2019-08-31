@@ -108,7 +108,7 @@ html: function(isEvent, data) {
 <div style="padding-top: 8px;">
 	<div style="float: left; width: 45%;">
 		Percent:<br>
-		<input id="percent" class="round" type="number" min="0" max="100"><br>
+		<input id="percent" class="round" type="text"><br>
 	</div>
 	<div style="float: right; width: 50%;">
 		Color:<br>
