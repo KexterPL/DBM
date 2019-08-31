@@ -106,7 +106,7 @@ html: function(isEvent, data) {
 	</div>
 </div><br><br><br>
 <div style="padding-top: 8px;">
-	<div style="float: left; width: 45%;">
+	<div style="float: left; width: 50%;">
 		Percent:<br>
 		<input id="percent" class="round" type="text"><br>
 	</div>
