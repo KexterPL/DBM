@@ -67,9 +67,15 @@ html: function(isEvent, data) {
 	<input id="fontPath" class="round" type="text" value="fonts/"><br>
 	Alignment:<br>
 	<select id="align" class="round" style="width: 90%;">
-		<option value="0" selected>Left</option>
-		<option value="1">Center</option>
-		<option value="2">Right</option>
+		<option value="0" selected>Top Left</option>
+		<option value="1">Top Center</option>
+		<option value="2">Top Right</option>
+		<option value="3">Middle Left</option>
+		<option value="4">Middle Center</option>
+		<option value="5">Middle Right</option>
+		<option value="6">Bottom Left</option>
+		<option value="7">Bottom Center</option>
+		<option value="8">Bottom Right</option>
 	</select><br>
 	X Position:<br>
 	<input id="x" class="round" type="text" value="0"><br>
@@ -143,12 +149,39 @@ action: function(cache) {
 	switch(align) {
 		case 0:
 			ctx.textAlign = "left";
+			ctx.textBaseline = "top";
 			break;
 		case 1:
 			ctx.textAlign = "center";
+			ctx.textBaseline = "top";
 			break;
 		case 2:
 			ctx.textAlign = "right";
+			ctx.textBaseline = "top";
+			break;
+		case 3:
+			ctx.textAlign = "left";
+			ctx.textBaseline = "middle";
+			break;
+		case 4:
+			ctx.textAlign = "center";
+			ctx.textBaseline = "middle";
+			break;
+		case 5:
+			ctx.textAlign = "right";
+			ctx.textBaseline = "middle";
+			break;
+		case 6:
+			ctx.textAlign = "left";
+			ctx.textBaseline = "bottom"; 
+			break;
+		case 7:
+			ctx.textAlign = "center";
+			ctx.textBaseline = "bottom"; 
+			break;
+		case 8:
+			ctx.textAlign = "right";
+			ctx.textBaseline = "bottom"; 
 	}
 	ctx.fillStyle = "#"+fontColor;
 	ctx.fillText(text, x, y);
