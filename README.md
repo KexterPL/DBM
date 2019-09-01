@@ -67,3 +67,12 @@ Discord Bot Maker Raw Data & Mods & Scripts
 - **Check if channel in a Category** Result will be `Category Object` if channel exist and inside category
 - **Speedtest.net Script** Install `npm i speedtest-net`, test speed and send result in embed format
 
+## Addition Note
+1. **Canvas Draw Text on Image** error about and here is the solution (Windows tested only)
+```
+(node.exe:25264): Pango-WARNING **: 16:56:52.016: couldn't load font "Karma-Regular Not-Rotated 80px", falling back to "Sans Not-Rotated 80px", expect ugly output.
+```
+- Get font from here https://fonts.google.com/ , and you should download it with name **fonts.zip** or **Font-Name.zip**
+- Put the `.ttf` file to bot's fonts directory
+- Install the font to system
+- Run the bot and check for console
